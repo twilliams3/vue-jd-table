@@ -4367,7 +4367,11 @@
 			// Normalizes the initialize settings in case one or more properties are not configured.
 			setting : function ()
 			{
-				return Object.assign (
+			    console.log('this.option');
+			    console.log(this.option);
+			    console.log('after assigning to setting');
+
+				var s= Object.assign (
 					{
 						// Data Provider
 						dataProvider : 0,
@@ -4439,6 +4443,9 @@
 						views               : []
 					}, this.option
 				);
+
+				console.log(s);
+				return s;
 			},
 
 			// Returns the total number of rows in the data.
