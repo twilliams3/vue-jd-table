@@ -455,7 +455,7 @@
 							</div>
 							<!-- String Items -->
 							<div v-else-if="column.type==='Html'" class="jd-rowData" v-html="currentTableData[row.selectedIndex].data[column.name]"></div>
-							<div v-else-if="column.type !=='Button' class="jd-rowData">{{ currentTableData[row.selectedIndex].data[column.name] }}</div>
+							<div v-else-if="column.type !=='Button'" class="jd-rowData">{{ currentTableData[row.selectedIndex].data[column.name] }}</div>
 
 						</div>
 					</div>
@@ -1527,9 +1527,6 @@
 
             buttonEmit: function(f,data)
             {
-               console.log('buttonEmit');
-               console.log(f);
-               console.log(data);
                this.$emit(f,data);
             },
 			// Emits the current state of the component.
