@@ -1041,11 +1041,14 @@
 
 			this.checkBrowser();
 
+
 			this.initializeTable();
 		},
 
 		mounted : function ()
 		{
+		    console.log('in mounted');
+		    console.log(this.option);
 			// Add an event listener to watch for a window resize. If detected, re-render the list.
 			window.addEventListener( 'resize', this.resizeListener );
 
@@ -4367,7 +4370,7 @@
 			// Normalizes the initialize settings in case one or more properties are not configured.
 			setting : function ()
 			{
-			    console.log('this.option');
+			    console.log('in computed setting: this.option');
 			    console.log(this.option);
 			    console.log('after assigning to setting');
 
