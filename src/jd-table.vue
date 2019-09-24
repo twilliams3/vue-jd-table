@@ -454,8 +454,8 @@
 								</ul>
 							</div>
 							<!-- String Items -->
-							<div v-else-if="column.type==='Html' class="jd-rowData" v-html="currentTableData[row.selectedIndex].data[column.name]"></div>
-							<div v-else class="jd-rowData">{{ currentTableData[row.selectedIndex].data[column.name] }}</div>
+							<div v-else-if="column.type==='Html'" class="jd-rowData" v-html="currentTableData[row.selectedIndex].data[column.name]"></div>
+							<div v-else-if="column.type !=='Button' class="jd-rowData">{{ currentTableData[row.selectedIndex].data[column.name] }}</div>
 
 						</div>
 					</div>
@@ -1178,6 +1178,7 @@
 								originalWidth : columnWidth,
 								order         : userColumn.order,
 								type          : userColumn.type,
+								emitFunc      : userColumn.emitFunc,
 								filterable    : filterable,
 								enabled       : enabled,
 								headerStyles  : {},
