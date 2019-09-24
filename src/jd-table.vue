@@ -269,7 +269,7 @@
 										</li>
 									</ul>
 								</span>
-								<span v-else-if="column.type === 'Button'"><button v-on:click.prevent="$emit(column.emitFunc,row.data)">{{row.data[column.name]}}</button></span>
+								<span v-else-if="column.type === 'Button'">TestB<button v-on:click.prevent="$emit(column.emitFunc,row.data)">{{row.data[column.name]}}</button></span>
 								<span v-else-if="column.type === 'Html'" :html="row.data[column.name]"></span>
 								<!-- String Items -->
 								<span v-else>{{ row.data[column.name] }}</span>
