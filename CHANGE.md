@@ -2,6 +2,9 @@
 
 ### Change Log
 
+#### v1.1.2.1
+- test
+
 #### v1.1.2
 - Fixed bug where if only 1 search result was returned, the selected item was wrong.
 

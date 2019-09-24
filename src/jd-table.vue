@@ -241,7 +241,7 @@
 					<div v-for="( column, index ) in rendering.views.currentView.schema" v-if="column.enabled" @click="changeSort( index, column.name, column.sortSpecial )" :title="sortTitle( index )" class="jd-cell" :class="columns.activeHoverIndex === index ? ( 'jd-hoverAssist' + headCellClasses) : headCellClasses" :style="column.headerStyles">
 
 						<div class="jd-cellText">
-							<div class="jd-title" v-html="column.title"></div>
+							<div class="jd-title" v-html="column.title + 'blah'"></div>
 							<i v-if="setting.columnSort && columns.activeSortIndex === index && !columns.activeSortAsc" class="fas fa-sort-alpha-up"></i>
 							<i v-if="setting.columnSort && columns.activeSortIndex === index && columns.activeSortAsc" class="fas fa-sort-alpha-down"></i>
 							<i v-if="setting.columnSort && columns.activeSortIndex !== index" class="fas fa-sort-alpha-down jd-hoverSort"></i>
@@ -262,6 +262,7 @@
 						<div v-if="isViewAvailable" v-for="row in currentTableData" @click="rowActionSingle( row.index )" @dblclick="rowActionDouble( row.index )" @mouseover="rowHover( row.index, $event )" class="jd-row" :class="viewRowClasses" :style="viewRowStyles">
 							<div v-for="( column, columnIndex ) in rendering.views.currentView.schema" v-if="column.enabled" class="jd-cell" :class="rowDataClasses" @mouseover="cellHover( columnIndex )" :style="column.dataStyles">
 								<!-- List Items -->
+								asdasda
 								<span v-if="column.type === 'Array'">
 									<ul class="jd-list">
 										<li v-for="item in row.data[column.name]">
@@ -270,7 +271,7 @@
 									</ul>
 								</span>
 								<span v-else-if="column.type === 'Button'">TestB<button v-on:click.prevent="$emit(column.emitFunc,row.data)">{{row.data[column.name]}}</button></span>
-								<span v-else-if="column.type === 'Html'" :html="row.data[column.name]"></span>
+								<span v-else-if="column.type === 'Html'" v-html="row.data[column.name]"></span>
 								<!-- String Items -->
 								<span v-else>{{ row.data[column.name] }} - {{column.type}}</span>
 							</div>
