@@ -442,7 +442,7 @@
 					</div>
 
 					<div ref="quickViewContent" class="jd-quickViewContent">
-						<div v-for="column in columns.list" class="jd-contentRow">
+						<div v-for="column in columns.list" class="jd-contentRow" v-if="column.type !== 'Button'">
 							<div class="jd-rowTitle">{{ column.title.replace(/(<([^>]+)>)/ig,"") }}</div>
 
 							<!-- List Items -->
@@ -1625,6 +1625,8 @@
 			// Configures a click listener to close quick menu when clicked out of it.
 			initializeQuickMenu : function ()
 			{
+			console.log('initializing quick menu');
+			console.log(this.setting);
 				window.addEventListener( "click", this.quickMenuListenerLeftClick );
 			},
 
