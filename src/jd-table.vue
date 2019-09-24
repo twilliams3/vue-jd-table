@@ -262,7 +262,6 @@
 						<div v-if="isViewAvailable" v-for="row in currentTableData" @click="rowActionSingle( row.index )" @dblclick="rowActionDouble( row.index )" @mouseover="rowHover( row.index, $event )" class="jd-row" :class="viewRowClasses" :style="viewRowStyles">
 							<div v-for="( column, columnIndex ) in rendering.views.currentView.schema" v-if="column.enabled" class="jd-cell" :class="rowDataClasses" @mouseover="cellHover( columnIndex )" :style="column.dataStyles">
 								<!-- List Items -->
-								asdasda
 								<span v-if="column.type === 'Array'">
 									<ul class="jd-list">
 										<li v-for="item in row.data[column.name]">
@@ -270,7 +269,7 @@
 										</li>
 									</ul>
 								</span>
-								<span v-else-if="column.type === 'Button'"><button class='btn' v-on:click.prevent="$emit(column.emitFunc,row.data)">{{row.data[column.name]}}</button></span>
+								<span v-else-if="column.type === 'Button'"><button class='btn btn-primary' v-on:click.prevent="buttonEmit(column.emitFunc,row.data)">{{row.data[column.name]}}</button></span>
 								<span v-else-if="column.type === 'Html'" v-html="row.data[column.name]"></span>
 								<!-- String Items -->
 								<span v-else>{{ row.data[column.name] }} - {{column.type}}</span>
@@ -1524,6 +1523,10 @@
 				}
 			},
 
+            buttonEmit: function(f,data)
+            {
+               this.$emit(f,data);
+            },
 			// Emits the current state of the component.
 			emitState : function ()
 			{
