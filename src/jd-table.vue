@@ -272,7 +272,7 @@
 								<span v-else-if="column.type === 'Button'"><button class='btn btn-primary' v-on:click.prevent="buttonEmit(column.emitFunc,row.data)">{{row.data[column.name]}}</button></span>
 								<span v-else-if="column.type === 'Html'" v-html="row.data[column.name]"></span>
 								<!-- String Items -->
-								<span v-else>{{ row.data[column.name] }} - {{column.type}}</span>
+								<span v-else>{{ row.data[column.name] }}</span>
 							</div>
 						</div>
 					</div>
@@ -454,6 +454,7 @@
 								</ul>
 							</div>
 							<!-- String Items -->
+							<div v-else-if="column.type==='Html' class="jd-rowData" v-html="currentTableData[row.selectedIndex].data[column.name]"></div>
 							<div v-else class="jd-rowData">{{ currentTableData[row.selectedIndex].data[column.name] }}</div>
 
 						</div>
@@ -1525,6 +1526,9 @@
 
             buttonEmit: function(f,data)
             {
+               console.log('buttonEmit');
+               console.log(f);
+               console.log(data);
                this.$emit(f,data);
             },
 			// Emits the current state of the component.
