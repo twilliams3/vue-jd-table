@@ -241,7 +241,7 @@
 					<div v-for="( column, index ) in rendering.views.currentView.schema" v-if="column.enabled" @click="changeSort( index, column.name, column.sortSpecial )" :title="sortTitle( index )" class="jd-cell" :class="columns.activeHoverIndex === index ? ( 'jd-hoverAssist' + headCellClasses) : headCellClasses" :style="column.headerStyles">
 
 						<div class="jd-cellText">
-							<div class="jd-title" v-html="column.title + 'blah'"></div>
+							<div class="jd-title" v-html="column.title"></div>
 							<i v-if="setting.columnSort && columns.activeSortIndex === index && !columns.activeSortAsc" class="fas fa-sort-alpha-up"></i>
 							<i v-if="setting.columnSort && columns.activeSortIndex === index && columns.activeSortAsc" class="fas fa-sort-alpha-down"></i>
 							<i v-if="setting.columnSort && columns.activeSortIndex !== index" class="fas fa-sort-alpha-down jd-hoverSort"></i>
@@ -270,7 +270,7 @@
 										</li>
 									</ul>
 								</span>
-								<span v-else-if="column.type === 'Button'">TestB<button v-on:click.prevent="$emit(column.emitFunc,row.data)">{{row.data[column.name]}}</button></span>
+								<span v-else-if="column.type === 'Button'"><button class='btn' v-on:click.prevent="$emit(column.emitFunc,row.data)">{{row.data[column.name]}}</button></span>
 								<span v-else-if="column.type === 'Html'" v-html="row.data[column.name]"></span>
 								<!-- String Items -->
 								<span v-else>{{ row.data[column.name] }} - {{column.type}}</span>
