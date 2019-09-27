@@ -2464,8 +2464,9 @@
 				}
 
 				// Reinit (reinit)
-                if ( !this.status.tableError && name === 'Reinit' )
+                if ( !this.status.tableError && name === 'reinit' )
                 {
+                    console.log('attempting re-init');
                     this.initializeTable();
                 }
 
