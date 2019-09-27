@@ -1041,14 +1041,11 @@
 
 			this.checkBrowser();
 
-
 			this.initializeTable();
 		},
 
 		mounted : function ()
 		{
-		    console.log('in mounted');
-		    console.log(this.option);
 			// Add an event listener to watch for a window resize. If detected, re-render the list.
 			window.addEventListener( 'resize', this.resizeListener );
 
@@ -1628,8 +1625,6 @@
 			// Configures a click listener to close quick menu when clicked out of it.
 			initializeQuickMenu : function ()
 			{
-			console.log('initializing quick menu');
-			console.log(this.setting);
 				window.addEventListener( "click", this.quickMenuListenerLeftClick );
 			},
 
@@ -2467,6 +2462,12 @@
 				{
 					this.clearTable();
 				}
+
+				// Reinit (reinit)
+                if ( !this.status.tableError && name === 'Reinit' )
+                {
+                    this.initializeTable();
+                }
 
 				// Displays a table error.
 				if ( !this.status.tableError && name === 'tableError' )
@@ -4370,11 +4371,7 @@
 			// Normalizes the initialize settings in case one or more properties are not configured.
 			setting : function ()
 			{
-			    console.log('in computed setting: this.option');
-			    console.log(this.option);
-			    console.log('after assigning to setting');
-
-				var s= Object.assign (
+				return Object.assign (
 					{
 						// Data Provider
 						dataProvider : 0,
@@ -4446,9 +4443,6 @@
 						views               : []
 					}, this.option
 				);
-
-				console.log(s);
-				return s;
 			},
 
 			// Returns the total number of rows in the data.
