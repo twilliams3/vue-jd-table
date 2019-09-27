@@ -2360,6 +2360,7 @@
 			// Processes the passed event.
 			processEvent : function ( name )
 			{
+			    console.log('process vue-jd-table event + '+name);
 				// Process the data sent to JD-Table.
 				if ( !this.status.tableError && name === 'sendData' )
 				{
@@ -2464,7 +2465,7 @@
 				}
 
 				// Reinit (reinit)
-                if ( !this.status.tableError && name === 'reinit' )
+                if ( name === 'reinit' )
                 {
                     console.log('attempting re-init');
                     this.initializeTable();
