@@ -2360,10 +2360,17 @@
 			// Processes the passed event.
 			processEvent : function ( name )
 			{
+
 			    console.log('process vue-jd-table event + '+name);
+			    if ( !this.status.tableError && 'sendDataAndReinit' )
+			    {
+			        console.log('attempting re-init');
+                    this.initializeTable();
+                }
 				// Process the data sent to JD-Table.
-				if ( !this.status.tableError && name === 'sendData' )
+				if ( !this.status.tableError && (name === 'sendData' || name === 'sendDataAndReinit' ))
 				{
+
 					let eventError = false;
 
 					// Clear the current view.
@@ -2465,11 +2472,7 @@
 				}
 
 				// Reinit (reinit)
-                if ( name === 'reinit' )
-                {
-                    console.log('attempting re-init');
-                    this.initializeTable();
-                }
+
 
 				// Displays a table error.
 				if ( !this.status.tableError && name === 'tableError' )
