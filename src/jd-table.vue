@@ -458,6 +458,22 @@
 							<div v-else-if="column.type !=='Button'" class="jd-rowData">{{ currentTableData[row.selectedIndex].data[column.name] }}</div>
 
 						</div>
+						<div v-for="column in setting.quickViewColumns" class="jd-contentRow" v-if="column.type !== 'Button'">
+                        							<div class="jd-rowTitle">{{ column.title.replace(/(<([^>]+)>)/ig,"") }}</div>
+
+                        							<!-- List Items -->
+                        							<div v-if="column.type === 'Array'" class="jd-rowData">
+                        								<ul>
+                        									<li v-for="item in currentTableData[row.selectedIndex].data[column.name]">
+                        										{{ item }}
+                        									</li>
+                        								</ul>
+                        							</div>
+                        							<!-- String Items -->
+                        							<div v-else-if="column.type==='Html'" class="jd-rowData" v-html="currentTableData[row.selectedIndex].data[column.name]"></div>
+                        							<div v-else-if="column.type !=='Button'" class="jd-rowData">{{ currentTableData[row.selectedIndex].data[column.name] }}</div>
+
+                        						</div>
 					</div>
 
 					<div class="jd-quickViewFooter">
@@ -4397,7 +4413,7 @@
 
 						// Column Data
 						columns             : [],
-
+                        quickViewColumns    : [],
 						// Features
 						startBySearch                : false,
 						startBySearchMessage         : null,
