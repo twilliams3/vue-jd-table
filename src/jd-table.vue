@@ -2365,6 +2365,20 @@
 			    if ( !this.status.tableError && 'sendDataAndReinit' )
 			    {
 			        console.log('attempting re-init');
+			        this.columns =
+                    				{
+                    					list               : [],
+                    					activeHoverIndex   : null,
+                    					activeResize       : null,
+                    					activeResizeStart  : null,
+                    					activeSortIndex    : 0,
+                    					activeSortName     : null,
+                    					activeSortAsc      : false,
+                    					activeSortSpecial  : null,
+                    					selecting          : false,
+                    					selectionItemWidth : 25,
+                    					selectionError     : false
+                    				};
                     this.initializeTable();
                 }
 				// Process the data sent to JD-Table.
