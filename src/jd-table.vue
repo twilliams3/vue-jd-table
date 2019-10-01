@@ -458,22 +458,33 @@
 							<div v-else-if="column.type !=='Button'" class="jd-rowData">{{ currentTableData[row.selectedIndex].data[column.name] }}</div>
 
 						</div>
-						<div v-for="column in setting.quickViewColumns" class="jd-contentRow" v-if="column.type !== 'Button'">
-                        							<div class="jd-rowTitle">{{ column.title.replace(/(<([^>]+)>)/ig,"") }}</div>
+						<div v-for="section in setting.quickViewColumns">
+						    <div class="jd-contentRow">
+						        <div class="jd-rowTitle jd-sectionTitle">{{section.title}}</div>
+						    </div>
+                            <div v-for="column in section.columns" class="jd-contentRow" v-if="column.type !== 'Button'">
+                                <div class="jd-rowTitle">{{ column.title.replace(/(<([^>]+)>)/ig,"") }}</div>
 
-                        							<!-- List Items -->
-                        							<div v-if="column.type === 'Array'" class="jd-rowData">
-                        								<ul>
-                        									<li v-for="item in currentTableData[row.selectedIndex].data[column.name]">
-                        										{{ item }}
-                        									</li>
-                        								</ul>
-                        							</div>
-                        							<!-- String Items -->
-                        							<div v-else-if="column.type==='Html'" class="jd-rowData" v-html="currentTableData[row.selectedIndex].data[column.name]"></div>
-                        							<div v-else-if="column.type !=='Button'" class="jd-rowData">{{ currentTableData[row.selectedIndex].data[column.name] }}</div>
+                                <!-- List Items -->
+                                <div class="jd-rowData" v-if="column.type === 'Array'" class="jd-rowData">
+                                    <ul>
+                                        <li v-for="item in currentTableData[row.selectedIndex].data[column.name]">
+                                            {{ item }}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- String Items -->
+                                <div v-else-if="column.type==='Html'" class="jd-rowData" v-html="currentTableData[row.selectedIndex].data[column.name]"></div>
 
-                        						</div>
+                                <div v-else-if="column.readOnly == true" class="jd-rowData">{{ currentTableData[row.selectedIndex].data[column.name] }}</div>
+
+
+                                <div v-else-if="column.type == 'Text'" class="jd-rowData"><input type='text' :value="currentTableData[row.selectedIndex].data[column.name]"></div>
+
+                                <div v-else-if="column.type == 'Number'" class="jd-rowData"><input type='number' :value="currentTableData[row.selectedIndex].data[column.name]"></div>
+
+                            </div>
+                           </div>
 					</div>
 
 					<div class="jd-quickViewFooter">
