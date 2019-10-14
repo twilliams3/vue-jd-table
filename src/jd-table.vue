@@ -276,11 +276,11 @@
 								    <label class="dd-dropdown">
 
                                       <div class="dd-button">
-                                        {{column.name}}
+                                        {{column.title}}
                                       </div>
 
                                       <ul class="dd-menu">
-                                        <li v-for="item in row.data[column.name].data" v-on:click.prevent="buttonEmit(row.data[column.name].emitFunc,row.data[column.name].data)>row.data[column.name].name</li>
+                                        <li v-for="(emitFunc,key) in column.emitFuncs" v-on:click.prevent="buttonEmit(emitFunc,row.data[column.name])>{{key}}</li>
 
                                       </ul>
 
