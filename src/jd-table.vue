@@ -271,6 +271,21 @@
 								</span>
 								<span v-else-if="column.type === 'Button'"><button class='btn btn-primary' v-on:click.prevent="buttonEmit(column.emitFunc,row.data)">{{row.data[column.name]}}</button></span>
 								<span v-else-if="column.type === 'Html'" v-html="row.data[column.name]"></span>
+
+								<span v-else if="column.type === 'Dropdown'">
+								    <label class="dd-dropdown">
+
+                                      <div class="dd-button">
+                                        {{column.name}}
+                                      </div>
+
+                                      <ul class="dd-menu">
+                                        <li v-for="item in row.data[column.name].data" v-on:click.prevent="buttonEmit(row.data[column.name].emitFunc,row.data[column.name].data)>row.data[column.name].name</li>
+
+                                      </ul>
+
+                                    </label>
+								</span>
 								<!-- String Items -->
 								<span v-else>{{ row.data[column.name] }}</span>
 							</div>
@@ -682,6 +697,9 @@
 		// | 1 | REQUEST : All data will be provided via external requests for all data based actions (search, filtering, pagination, sorting, etc.).
 		// -----         : These data based actions will instead emit events to the parent app for processing.
 		//
+
+
+
 		// Prop        : option.columns
 		// Value       : [ARRAY]
 		// Default     : Empty
