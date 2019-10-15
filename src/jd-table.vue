@@ -272,7 +272,7 @@
 								<span v-else-if="column.type === 'Button'"><button class='btn btn-primary' v-on:click.prevent="buttonEmit(column.emitFunc,row.data)">{{row.data[column.name]}}</button></span>
 								<span v-else-if="column.type === 'Html'" v-html="row.data[column.name]"></span>
 
-								<span v-else if="column.type === 'Dropdown'">
+								<span v-else-if="column.type === 'Dropdown'">
 								    <label class="dd-dropdown">
 
                                       <div class="dd-button">
@@ -280,7 +280,7 @@
                                       </div>
 
                                       <ul class="dd-menu">
-                                        <li v-for="(emitFunc,key) in column.emitFuncs" v-on:click.prevent="buttonEmit(emitFunc,row.data[column.name])>{{key}}</li>
+                                        <li v-for="(emitFunc,key) in column.emitFuncs" v-on:click.prevent="buttonEmit(emitFunc,row.data)>{{key}}</li>
 
                                       </ul>
 
