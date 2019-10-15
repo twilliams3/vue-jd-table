@@ -278,7 +278,7 @@
                                       <div class="dd-button">
                                         {{column.title}}
                                       </div>
-
+                                        <input type="checkbox" class="dd-input" id="test">
                                       <ul class="dd-menu">
                                         <li v-for="ef in column.emitFuncs" v-on:click.prevent="buttonEmit(ef.function,row.data)">{{ef.title}}</li>
 
