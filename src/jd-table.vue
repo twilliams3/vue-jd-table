@@ -280,7 +280,7 @@
                                       </div>
 
                                       <ul class="dd-menu">
-                                        <li v-for="(emitFunc,key) in column.emitFuncs" v-on:click.prevent="buttonEmit(emitFunc,row.data)>{{key}}</li>
+                                        <li v-for="(emitFunc,key) in column.emitFuncs" v-on:click.prevent="buttonEmit(emitFunc,row.data)">{{key}}</li>
 
                                       </ul>
 
