@@ -1224,6 +1224,7 @@
 								order         : userColumn.order,
 								type          : userColumn.type,
 								emitFunc      : userColumn.emitFunc,
+								emitFuncs     : userColumn.emitFuncs,
 								filterable    : filterable,
 								enabled       : enabled,
 								headerStyles  : {},
