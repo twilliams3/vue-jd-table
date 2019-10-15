@@ -1517,7 +1517,7 @@
   display: none; }
 
 .dd-menu {
-  position: absolute;
+  position: relative;
   top: 100%;
   border: 1px solid #ccc;
   border-radius: 4px;
