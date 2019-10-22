@@ -1492,17 +1492,21 @@
 
 .dd-dropdown {
   display: inline-block;
-  position: relative; }
+  position: relative;
+  width: 100%; }
 
 .dd-button {
   display: inline-block;
-  border: 1px solid gray;
+  /*  border: 1px solid gray;
   border-radius: 4px;
   padding: 5px 30px 5px 20px;
   background-color: #ffffff;
   cursor: pointer;
-  white-space: nowrap; }
+  white-space: nowrap;*/
+  cursor: pointer;
+  width: 100%; }
 
+/*
 .dd-button:after {
   content: '';
   position: absolute;
@@ -1513,8 +1517,9 @@
   height: 0;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-top: 5px solid black; }
-
+  border-top: 5px solid black;
+}
+*/
 .dd-button:hover {
   background-color: #eeeeee; }
 
