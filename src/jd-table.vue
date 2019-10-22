@@ -285,6 +285,7 @@
                                       </ul>
 
                                     </label>
+
 								</span>
 								<!-- String Items -->
 								<span v-else>{{ row.data[column.name] }}</span>
@@ -5122,3 +5123,4 @@
 </script>
 
 <style scoped lang="scss"></style>
+
