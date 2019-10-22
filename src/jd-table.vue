@@ -471,7 +471,7 @@
 							</div>
 							<!-- String Items -->
 							<div v-else-if="column.type==='Html'" class="jd-rowData" v-html="currentTableData[row.selectedIndex].data[column.name]"></div>
-							<span v-else-if="column.type === 'Date'" class="jd-rowData" v-html="localDate(row.data[column.name])"></span>
+							<span v-else-if="column.type === 'Date'" class="jd-rowData" v-html="localDate(currentTableData[row.selectedIndex].data[column.name])"></span>
 							<div v-else-if="column.type !=='Button'" class="jd-rowData">{{ currentTableData[row.selectedIndex].data[column.name] }}</div>
 
 						</div>
