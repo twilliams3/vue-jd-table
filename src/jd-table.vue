@@ -2414,11 +2414,8 @@
 			// Processes the passed event.
 			processEvent : function ( name )
 			{
-
-			    console.log('process vue-jd-table event + '+name);
 			    if ( !this.status.tableError && 'sendDataAndReinit' )
 			    {
-			        console.log('attempting re-init');
 			        this.columns =
                     				{
                     					list               : [],
