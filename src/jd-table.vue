@@ -272,11 +272,11 @@
 								<span v-else-if="column.type === 'Button'"><button class='btn btn-primary' v-on:click.prevent="buttonEmit(column.emitFunc,row.data)">{{row.data[column.name]}}</button></span>
 								<span v-else-if="column.type === 'Html'" v-html="row.data[column.name]"></span>
                                 <span v-else-if="column.type === 'Date'" v-html="localDate(row.data[column.name])"></span>
-								<span v-else-if="column.type === 'Dropdown'">
+								<span v-else-if="column.type === 'Dropdown'" class="dd-span">
 								    <label class="dd-dropdown">
 
                                       <div class="dd-button">
-                                        {{column.title}}
+                                        <i class="fa fa-bars" style="float:right"></i> {{column.title}}
                                       </div>
                                         <input type="checkbox" class="dd-input" id="test">
                                       <ul class="dd-menu">

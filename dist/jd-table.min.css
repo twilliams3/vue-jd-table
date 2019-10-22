@@ -1485,6 +1485,11 @@
   transform: translateY(-2.95rem);
   opacity: 0; }
 
+.dd-span {
+  width: 100%;
+  margin-right: 10px;
+  margin-top: 5px; }
+
 .dd-dropdown {
   display: inline-block;
   position: relative; }
