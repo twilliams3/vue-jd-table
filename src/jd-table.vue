@@ -271,7 +271,7 @@
 								</span>
 								<span v-else-if="column.type === 'Button'"><button class='btn btn-primary' v-on:click.prevent="buttonEmit(column.emitFunc,row.data)">{{row.data[column.name]}}</button></span>
 								<span v-else-if="column.type === 'Html'" v-html="row.data[column.name]"></span>
-
+                                <span v-else-if="column.type === 'Date'" v-html="localDate(row.data[column.name])"></span>
 								<span v-else-if="column.type === 'Dropdown'">
 								    <label class="dd-dropdown">
 
@@ -1135,6 +1135,12 @@
 
 		methods :
 		{
+		    localDate : function (str)
+		    {
+		       var d = new Date(str);
+		       return d.toLocaleDateString();
+
+		    },
 			// Polyfills the element function "closest" (IE11).
 			polyfillClosest : function ()
 			{
